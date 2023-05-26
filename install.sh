@@ -6,7 +6,7 @@ VERSION="${1:-latest}"
 
 if [ "${VERSION}" = "latest" ]; then
   # shellcheck disable=SC2034 # Disable incorrect unused variable warning
-  PACKAGE_URL="https://github.com/SierraSoftworks/tailscale-udm/releases/latest/download/tailscale-udm.tgz"
+  PACKAGE_URL="https://github.com/baldwint/tailscale-udm/tarball/unvr"
 else
   PACKAGE_URL="https://github.com/SierraSoftworks/tailscale-udm/releases/download/${VERSION}/tailscale-udm.tgz"
 fi
