@@ -18,7 +18,7 @@ steps you took prior to the issue occurring help immensely.
    
    ```sh
    # Install the latest version of Tailscale UDM
-   curl -sSLq https://raw.github.com/baldwint/tailscale-udm/main/install.sh | sh
+   curl -sSLq https://raw.github.com/baldwint/tailscale-udm/unvr/install.sh | sh
    ```
 2. Run `tailscale up` to start Tailscale.
 3. Follow the on-screen steps to configure Tailscale and connect it to your network.
