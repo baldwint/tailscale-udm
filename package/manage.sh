@@ -2,24 +2,9 @@
 set -e
 
 PACKAGE_ROOT="${PACKAGE_ROOT:-"$(dirname -- "$(readlink -f -- "$0";)")"}"
-OS_VERSION="${FW_VERSION:-$(ubnt-device-info firmware_detail | grep -oE '^[0-9]+')}"
 
-if [ "$OS_VERSION" = '1' ]; then
-  # shellcheck source=package/unios_1.x.sh
-  . "$PACKAGE_ROOT/unios_1.x.sh"
-elif [ "$OS_VERSION" = '2' ] || [ "$OS_VERSION" = '3' ]; then
-  # shellcheck source=package/unios_2.x.sh
-  . "$PACKAGE_ROOT/unios_2.x.sh"
-else
-  echo "Unsupported UniFi OS version (v$OS_VERSION)."
-  echo "Please provide the following information to us on GitHub:"
-  echo "# /usr/bin/ubnt-device-info firmware_detail"
-  /usr/bin/ubnt-device-info firmware_detail
-  echo ""
-  echo "# /etc/os-release"
-  cat /etc/os-release
-  exit 1
-fi
+# shellcheck source=package/unios_2.x.sh
+. "$PACKAGE_ROOT/unios_2.x.sh"
 
 tailscale_status() {
   if ! _tailscale_is_installed; then
